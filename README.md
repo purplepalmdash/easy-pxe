@@ -1,5 +1,11 @@
 ### 1. Introduction
 easy-pxe could quickly start pxe server in "air-gapped" environment, which could serve Ubuntu16.04/18.04 OS installation using pxe. 
+* 70 MB size.
+* Green, needn't install any packages(Dockerd runs in binary mode).
+* Fast, tftpd/dns/dhcpd/http server in docker. 
+* Runs in most Linux amd64 distributions.
+* Currently support Ubuntu 16.04 ~ 16.04.6, Ubuntu 18.04 ~ 18.04.4 pxe deployment. 
+* Could be easily customized for adding more Linux distributions.   
 
 ### 2. Usage
 #### 2.1 Fetch code and make easypxe(Online environment)
