@@ -101,13 +101,15 @@ Set dns:
 Wait until installation finishes, using the pre-defined username/password(test/insecure) for login to deployed OS.    
 
 #### 2.4 Deployer with built-in DHCPD Server
-You have to specify ip/dhcp start ip/dhcp end ip/netmask after running `start.sh`:    
+When no dhcpd server in your environment, you could use dnsmasq's built-in dhcpd server. Simply specify ip/dhcp start ip/dhcp end ip/netmask after running `start.sh`:    
 
 ![./images/2020_02_23_18_08_28_1306x569.jpg](./images/2020_02_23_18_08_28_1306x569.jpg)
 
-Running result:     
+Running result listed as following:     
 
 ![./images/2020_02_23_18_09_42_1264x260.jpg](./images/2020_02_23_18_09_42_1264x260.jpg)
+
+Now you could deploy nodes like described in `2.3  Deploy nodes`.    
 
 ### 3. Customization
 #### 3.1 PXE boot menu Customization
