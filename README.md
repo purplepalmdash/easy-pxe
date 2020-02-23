@@ -94,7 +94,8 @@ Continue without default gw:
 
 ![./images/2020_02_23_17_59_51_565x237.jpg](./images/2020_02_23_17_59_51_565x237.jpg)
 
-Set dns
+Set dns:    
+
 ![./images/2020_02_23_18_00_45_588x235.jpg](./images/2020_02_23_18_00_45_588x235.jpg)
 
 Wait until installation finishes, using the pre-defined username/password(test/insecure) for login to deployed OS.    
