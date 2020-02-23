@@ -1,0 +1,24 @@
+LABEL ubuntu-amd64-all-in-one
+MENU LABEL Install Ubuntu amd64(all-in-one)
+KERNEL /ubuntu/install/netboot/ubuntu-installer/amd64/linux
+APPEND /install/vmlinuz noapic auto=true interface=eth0 hostname=node domain=home url=tftp://192.168.57.1/preseed/18.04/ubuntu_allinone.cfg initrd=ubuntu/install/netboot/ubuntu-installer/amd64/initrd.gz debian-installer=en_US auto locale=en_US kbd-chooser/method=us keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false --
+LABEL ubuntu-amd64-sep-small
+MENU LABEL Install Ubuntu amd64(100G /)
+KERNEL /ubuntu/install/netboot/ubuntu-installer/amd64/linux
+APPEND /install/vmlinuz noapic auto=true interface=eth0 hostname=node domain=home url=tftp://192.168.57.1/preseed/18.04/ubuntu_sep_small.cfg initrd=ubuntu/install/netboot/ubuntu-installer/amd64/initrd.gz debian-installer=en_US auto locale=en_US kbd-chooser/method=us keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false --
+LABEL ubuntu-amd64-sep-big
+MENU LABEL Install Ubuntu amd64(500G /)
+KERNEL /ubuntu/install/netboot/ubuntu-installer/amd64/linux
+APPEND /install/vmlinuz noapic auto=true interface=eth0 hostname=node domain=home url=tftp://192.168.57.1/preseed/18.04/ubuntu_sep_big.cfg initrd=ubuntu/install/netboot/ubuntu-installer/amd64/initrd.gz debian-installer=en_US auto locale=en_US kbd-chooser/method=us keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false --
+LABEL hwe-ubuntu-amd64-all-in-one
+MENU LABEL (HWE)Install Ubuntu amd64(all-in-one)
+KERNEL /ubuntu/install/hwe-netboot/ubuntu-installer/amd64/linux
+APPEND /install/vmlinuz noapic auto=true interface=eth0 hostname=node url=tftp://192.168.57.1/preseed/18.04/ubuntu_allinone.cfg initrd=ubuntu/install/hwe-netboot/ubuntu-installer/amd64/initrd.gz debian-installer=en_US auto locale=en_US kbd-chooser/method=us keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false --
+LABEL hwe-ubuntu-amd64-sep-small
+MENU LABEL (HWE)Install Ubuntu amd64(100G /)
+KERNEL /ubuntu/install/hwe-netboot/ubuntu-installer/amd64/linux
+APPEND /install/vmlinuz noapic auto=true interface=eth0 hostname=node domain=home url=tftp://192.168.57.1/preseed/18.04/ubuntu_sep_small.cfg initrd=ubuntu/install/hwe-netboot/ubuntu-installer/amd64/initrd.gz debian-installer=en_US auto locale=en_US kbd-chooser/method=us keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false --
+LABEL hwe-ubuntu-amd64-sep-big
+MENU LABEL (HWE)Install Ubuntu amd64(500G /)
+KERNEL /ubuntu/install/hwe-netboot/ubuntu-installer/amd64/linux
+APPEND /install/vmlinuz noapic auto=true interface=eth0 hostname=node domain=home url=tftp://192.168.57.1/preseed/18.04/ubuntu_sep_big.cfg initrd=ubuntu/install/hwe-netboot/ubuntu-installer/amd64/initrd.gz debian-installer=en_US auto locale=en_US kbd-chooser/method=us keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false --
