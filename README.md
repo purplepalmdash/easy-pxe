@@ -7,6 +7,8 @@ easy-pxe could quickly start pxe server in "air-gapped" environment, which could
 * Currently support Ubuntu 16.04 ~ 16.04.6, Ubuntu 18.04 ~ 18.04.4 pxe deployment. 
 * Could be easily customized for adding more Linux distributions.   
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IY70gfijAOg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### 2. Usage
 #### 2.1 Fetch code and make easypxe(Online environment)
 Clone the code and run `make_release.sh` for preparing the "air-gapped" deployer.   
