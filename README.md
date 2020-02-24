@@ -6,6 +6,7 @@ easy-pxe could quickly start pxe server in "air-gapped" environment, which could
 * Runs in most Linux amd64 distributions.
 * Currently support Ubuntu 16.04 ~ 16.04.6, Ubuntu 18.04 ~ 18.04.4 pxe deployment. 
 * Could be easily customized for adding more Linux distributions.   
+* Support both UEFI and BIOS pxe. 
 
 [![easy-pxe youtube video](./images/2020_02_23_22_11_39_851x480.jpg)](https://www.youtube.com/embed/IY70gfijAOg)
 
