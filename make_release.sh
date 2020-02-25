@@ -10,10 +10,11 @@ rm -rf ./easypxe
 mkdir -p ./easypxe/config
 cp -r src/preseed ./easypxe/config/
 cp -r src/pxelinux.cfg ./easypxe/config/
+cp -r src/uefi ./easypxe/config/
 cp -r src/start.sh ./easypxe
 cp -r src/clean.sh ./easypxe
 cd ./easypxe/config
-tar czvf config.tar.gz preseed/ pxelinux.cfg/
+tar czvf config.tar.gz preseed/ pxelinux.cfg/ uefi/
 docker pull feipyang/nginxautoindex:latest
 docker pull ferrarimarco/pxe:latest
 docker save -o dockerimages.tar feipyang/nginxautoindex:latest ferrarimarco/pxe:latest
@@ -21,4 +22,5 @@ xz -T4 dockerimages.tar
 wget https://download.docker.com/linux/static/stable/x86_64/docker-19.03.5.tgz
 rm -rf preseed
 rm -rf pxelinux.cfg
+rm -rf uefi
 echo "Done"

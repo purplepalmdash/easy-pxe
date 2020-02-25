@@ -126,13 +126,14 @@ rm -rf config/pxelinux.cfg
 tar xzvf config/config.tar.gz -C config/
 sed -i "s/192.168.57.1/$tftp_http_ip/g" config/preseed/18.04/*.cfg
 sed -i "s/192.168.57.1/$tftp_http_ip/g" config/pxelinux.cfg/*
+sed -i "s/192.168.57.1/$tftp_http_ip/g" config/uefi/grub/*
 ### 2.5 Run deploy server
 # todo: should check if exists
 docker stop deployserver
 docker rm deployserver
 if [[ -z "$dhcp_external_server_ip" ]];
 then 
-	docker run --name deployserver  -it --rm --net=host --entrypoint=/bin/sh -v $currentDIR/config/preseed:/var/lib/tftpboot/preseed -v /media/installiso:/var/lib/tftpboot/ubuntu -v $currentDIR/config/pxelinux.cfg/additional_menu_entries:/var/lib/tftpboot/pxelinux.cfg/additional_menu_entries ferrarimarco/pxe:latest -c "dnsmasq --no-daemon --dhcp-range=$dhcp_start_ip,$dhcp_end_ip,$subnet_mask --dhcp-broadcast --dhcp-option=6,$tftp_http_ip"
+	docker run --name deployserver  -it --rm --net=host --entrypoint=/bin/sh -v $currentDIR/config/preseed:/var/lib/tftpboot/preseed -v /media/installiso:/var/lib/tftpboot/ubuntu -v $currentDIR/config/pxelinux.cfg/additional_menu_entries:/var/lib/tftpboot/pxelinux.cfg/additional_menu_entries -v $currentDIR/config/uefi/grubnetx64.efi:/var/lib/tftpboot/grubnetx64.efi -v $currentDIR/config/uefi/grub:/var/lib/tftpboot/grub -v $currentDIR/config/uefi/dnsmasq.conf:/etc/dnsmasq.conf ferrarimarco/pxe:latest -c "dnsmasq --no-daemon --dhcp-range=$dhcp_start_ip,$dhcp_end_ip,$subnet_mask --dhcp-broadcast --dhcp-option=6,$tftp_http_ip"
 else
-	docker run --name deployserver  -it --rm --net=host --entrypoint=/bin/sh -v $currentDIR/config/preseed:/var/lib/tftpboot/preseed -v /media/installiso:/var/lib/tftpboot/ubuntu -v $currentDIR/config/pxelinux.cfg/additional_menu_entries:/var/lib/tftpboot/pxelinux.cfg/additional_menu_entries ferrarimarco/pxe:latest -c "dnsmasq --no-daemon --dhcp-range=$dhcp_external_server_ip,proxy"
+	docker run --name deployserver  -it --rm --net=host --entrypoint=/bin/sh -v $currentDIR/config/preseed:/var/lib/tftpboot/preseed -v /media/installiso:/var/lib/tftpboot/ubuntu -v $currentDIR/config/pxelinux.cfg/additional_menu_entries:/var/lib/tftpboot/pxelinux.cfg/additional_menu_entries -v $currentDIR/config/uefi/grubnetx64.efi:/var/lib/tftpboot/grubnetx64.efi -v $currentDIR/config/uefi/grub:/var/lib/tftpboot/grub -v $currentDIR/config/uefi/dnsmasq.conf:/etc/dnsmasq.conf ferrarimarco/pxe:latest -c "dnsmasq --no-daemon --dhcp-range=$dhcp_external_server_ip,proxy"
 fi
