@@ -6,7 +6,7 @@ easy-pxe could quickly start pxe server in "air-gapped" environment, which could
 * Runs in most Linux amd64 distributions.
 * Currently support Ubuntu 16.04 ~ 16.04.6, Ubuntu 18.04 ~ 18.04.4 pxe deployment. 
 * Could be easily customized for adding more Linux distributions.   
-* Support both UEFI and BIOS pxe. 
+* Support both UEFI and BIOS pxe(UEFI could not install hwe kernel). 
 
 [![easy-pxe youtube video](./images/2020_02_23_22_11_39_851x480.jpg)](https://www.youtube.com/embed/IY70gfijAOg)
 
@@ -140,4 +140,18 @@ You could modify the preseed files under `src/preseed`, add/remove/modify the pr
 ### 4. Clean
 When deployment finished, simply use `./clean.sh` for removing the docker instance and docker images, `clean.sh` won't remove the docker binary files under `/usr/local/bin`. If feel necessary you could manually remove them.    
 
+### 5. Known issue
+#### 5.1 uefi mode installation stuck at grub install 66%
+The problem is a bug in os-prober. The fix is to ctrl-alt-F2 into a new BusyBox shell, ps and grep for the offending process, and kill it:
 
+```
+BusyBox v1.27.2 (Ubuntu 1:1.27.2-2ubuntu3.1) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+# ps  | grep dmsetup | grep -v grep
+6114   root   29466 S    dmsetup create -r osprober-linux-sdc9
+
+# kill 6114
+```
+Then ctrl-alt-F1 go back to installation window, the setup will finish
+successfully.   
